@@ -7,10 +7,14 @@
     <form>
       <div class="mb-3">
         <label for="nome" class="form-label">Selecione um video ou imagem</label>
-        <input type="file" class="form-control" id="nome" name="nome" accept="image/*,video/*" />
+        <input type="file" class="form-control" id="nome" name="nome" accept="image/*,video/*"
+               [(ngModel)]="upload.file_path">
       </div>
       <div class="d-flex">
-        <button class="btn btn-primary mb-3 ms-auto">Enviar</button>
+        <button class="btn btn-primary mb-3 ms-auto"
+                [ngClass]="{'disabled': !upload.file_path}">
+          Enviar
+        </button>
       </div>
     </form>
   </div>
