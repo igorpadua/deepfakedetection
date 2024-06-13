@@ -1,4 +1,10 @@
+export enum UploadTipoArquivo {
+  select = 'Selecionar',
+  Imagem = 'imagem',
+  Video = 'video',
+}
+
 export interface Upload {
-  descricao: string;
+  description: UploadTipoArquivo;
   file_path: string;
 }
