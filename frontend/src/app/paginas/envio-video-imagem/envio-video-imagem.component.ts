@@ -41,7 +41,7 @@ export class EnvioVideoImagemComponent {
         this.toastr.error(err.error.message, err.statusText);
         return EMPTY;
       }))
-      .subscribe((res: any) => {
+      .subscribe((res: RespostaUpload) => {
         this.toastr.success(`${res.score}` , res.target);
       })
   }
