@@ -6,6 +6,8 @@ import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {UploadService} from "../../service/upload.service";
 import {catchError, EMPTY} from "rxjs";
 import {ToastrService} from "ngx-toastr";
+import {File} from "node:buffer";
+import {RespostaUpload} from "../../modal/resposta-upload";
 
 @Component({
   selector: 'app-envio-video-imagem',
@@ -27,15 +29,21 @@ export class EnvioVideoImagemComponent {
     file_path: ''
   }
 
+  mudouArquivo(event: any) {
+    this.upload.file_path = event.target.files[0];
+  }
+
   constructor(private uploadService: UploadService, private toastr: ToastrService) {}
 
   enviar() {
     this.uploadService.uploadFile(this.upload)
       .pipe(catchError(err => {
-        this.toastr.error(err.error.message, 'Erro!');
+        this.toastr.error(err.error.message, err.statusText);
         return EMPTY;
       }))
-      .subscribe()
+      .subscribe((res: any) => {
+        this.toastr.success(`${res.score}` , res.target);
+      })
   }
 
   protected readonly Object = Object;

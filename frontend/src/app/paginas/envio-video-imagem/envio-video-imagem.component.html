@@ -16,13 +16,13 @@
       <div class="mb-3" *ngIf="upload.description === UploadTipoArquivo.image">
         <label for="imagem" class="form-label">Selecione uma imagem</label>
         <input type="file" class="form-control" id="imagem" name="imagem" accept="image/*"
-               [(ngModel)]="upload.file_path">
+               (change)="mudouArquivo($event)">
       </div>
 
       <div class="mb-3" *ngIf="upload.description === UploadTipoArquivo.video">
         <label for="video" class="form-label">Selecione um vídeo</label>
         <input type="file" class="form-control" id="video" name="video" accept="video/*"
-               [(ngModel)]="upload.file_path">
+               (change)="mudouArquivo($event)">
       </div>
       <div class="d-flex">
         <button class="btn btn-primary mb-3 ms-auto" type="submit"

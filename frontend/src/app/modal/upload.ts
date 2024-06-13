@@ -1,3 +1,5 @@
+import {File} from "node:buffer";
+
 export enum UploadTipoArquivo {
   select = 'select',
   image = 'image',
@@ -6,5 +8,5 @@ export enum UploadTipoArquivo {
 
 export interface Upload {
   description: UploadTipoArquivo;
-  file_path: string;
+  file_path: File | string;
 }
