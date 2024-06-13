@@ -9,11 +9,17 @@ import {RespostaUpload} from "../modal/resposta-upload";
 })
 export class UploadService {
 
-  url = '/api/upload';
+  url = '/api/upload/file';
 
   constructor(private http: HttpClient) { }
 
   uploadFile(upload: Upload): Observable<RespostaUpload> {
-    return this.http.post<RespostaUpload>(this.url, upload)
+
+    const formData = new FormData();
+    if (upload.file_path instanceof File)
+      formData.append('file', upload.file_path);
+
+    formData.append('description', upload.description);
+    return this.http.post<RespostaUpload>(this.url, formData);
   }
 }
