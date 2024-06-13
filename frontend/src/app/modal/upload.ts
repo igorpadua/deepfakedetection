@@ -1,7 +1,7 @@
 export enum UploadTipoArquivo {
-  select = 'Selecionar',
-  Imagem = 'imagem',
-  Video = 'video',
+  select = 'select',
+  image = 'image',
+  video = 'video',
 }
 
 export interface Upload {

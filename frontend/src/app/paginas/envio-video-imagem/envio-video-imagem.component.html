@@ -13,13 +13,13 @@
           </option>
         </select>
       </div>
-      <div class="mb-3" *ngIf="upload.description === UploadTipoArquivo.Imagem">
+      <div class="mb-3" *ngIf="upload.description === UploadTipoArquivo.image">
         <label for="imagem" class="form-label">Selecione uma imagem</label>
         <input type="file" class="form-control" id="imagem" name="imagem" accept="image/*"
                [(ngModel)]="upload.file_path">
       </div>
 
-      <div class="mb-3" *ngIf="upload.description === UploadTipoArquivo.Video">
+      <div class="mb-3" *ngIf="upload.description === UploadTipoArquivo.video">
         <label for="video" class="form-label">Selecione um vídeo</label>
         <input type="file" class="form-control" id="video" name="video" accept="video/*"
                [(ngModel)]="upload.file_path">
